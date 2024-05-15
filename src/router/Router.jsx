@@ -31,7 +31,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/order",
-        element:<PrivateRouter><Order/></PrivateRouter>
+        element: (
+          <PrivateRouter>
+            <Order />
+          </PrivateRouter>
+        ),
       },
       {
         path: "/cart-page",
@@ -43,8 +47,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/process-checkout",
-        element: <Payment/>
-      }
+        element: <Payment />,
+      },
     ],
   },
   {
@@ -78,13 +82,16 @@ const router = createBrowserRouter([
       },
       {
         path: "manage-items",
-        element: <ManageItems/>
+        element: <ManageItems />,
       },
       {
         path: "update-menu/:id",
-        element: <UpdateMenu/>,
-        loader: ({params}) => fetch(`http://localhost:6001/menu/${params.id}`)
-      }
+        element: <UpdateMenu />,
+        loader: ({ params }) =>
+          fetch(
+            `https://complete-foodie-client-server.onrender.com/menu/${params.id}`
+          ),
+      },
     ],
   },
 ]);
