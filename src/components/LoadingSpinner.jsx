@@ -1,5 +1,5 @@
 import React from "react";
-import logo from '../../public/logo.png'
+import logo from '/logo.png'
 
 const LoadingSpinner = () => {
   return (
