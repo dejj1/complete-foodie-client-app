@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import useCarts from "../../hooks/useCarts";
+import useCart from "../../hooks/useCart";
 import { FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../contexts/AuthProvider";
@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const CartPage = () => {
   const { user } = useContext(AuthContext);
-  const [cart, refetch] = useCarts();
+  const [cart, refetch] = useCart();
   const [cartItems, setCartItems] = useState([]);
 
   // calculate the total price for each item in the cart
@@ -22,7 +22,7 @@ const CartPage = () => {
       const response = await fetch(
         `https://complete-foodie-client-server.onrender.com/carts/${item._id}`,
         {
-          method: "PUT",
+          method: "PATCH",
           headers: {
             "Content-Type": "application/json",
           },
@@ -32,22 +32,25 @@ const CartPage = () => {
 
       if (response.ok) {
         const updatedCart = cartItems.map((cartItem) => {
-          if (cartItem.id === item.id) {
+          if (cartItem._id === item._id) {
             return {
               ...cartItem,
               quantity: cartItem.quantity + 1,
             };
           }
           return cartItem;
+         
         });
         setCartItems(updatedCart);
         await refetch();
+       
       } else {
         console.error("Failed to update quantity");
       }
     } catch (error) {
       console.error("Error updating quantity:", error);
     }
+   
   };
 
   // handle decrement
@@ -57,7 +60,7 @@ const CartPage = () => {
         const response = await fetch(
           `https://complete-foodie-client-server.onrender.com/carts/${item._id}`,
           {
-            method: "PUT",
+            method: "PATCH",
             headers: {
               "Content-Type": "application/json",
             },

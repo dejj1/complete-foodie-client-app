@@ -2,19 +2,18 @@ import React, { useContext, useEffect, useState } from "react";
 import logo from "/logo.png";
 import { FaRegUser } from "react-icons/fa";
 import Modal from "./Modal";
-import { AuthContext } from "../contexts/AuthProvider";
 import Profile from "./Profile";
 import { Link } from "react-router-dom";
-import useCarts from "../hooks/useCarts";
+import useCart from "../hooks/useCart";
 import useAuth from "../hooks/useAuth";
 
 const Navbar = () => {
   const [isSticky, setSticky] = useState(false);
-  const {user, loading} = useAuth();
+  const { user, loading } = useAuth();
   // const {user} = useContext(AuthContext);
-  console.log(user)
+  console.log(user);
 
-  const [cart, refetch] = useCarts()
+  const [cart, refetch] = useCart();
 
   //handle scroll functions
   useEffect(() => {
@@ -30,19 +29,18 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.addEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   const navItems = (
     <>
       <li>
-        <a className="text-green" href="/">
-          {" "}
+        <a href="/" className="text-green">
           Home
         </a>
       </li>
-      <li>
+      <li tabIndex={0}>
         <details>
           <summary>Menu</summary>
           <ul className="p-2">
@@ -58,7 +56,7 @@ const Navbar = () => {
           </ul>
         </details>
       </li>
-      <li>
+      <li tabIndex={0}>
         <details>
           <summary>Services</summary>
           <ul className="p-2">
@@ -89,8 +87,8 @@ const Navbar = () => {
         }`}
       >
         <div className="navbar-start">
-          <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div className="dropdown justify-between">
+            <div tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -108,7 +106,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-64 space-y-3"
             >
               {navItems}
             </ul>
@@ -139,12 +137,11 @@ const Navbar = () => {
             </svg>
           </button>
 
-          {/* {cart items} */}
+          {/* cart items */}
           <Link to="cart-page">
-          <div
+          <label
             tabIndex={0}
-            role="button"
-            className="btn btn-ghost btn-circle mr-3 lg:flex hidden flex items-center justify-center"
+            className="btn btn-ghost btn-circle  lg:flex items-center justify-center mr-3"
           >
             <div className="indicator">
               <svg
@@ -162,21 +159,20 @@ const Navbar = () => {
                 />
               </svg>
               <span className="badge badge-sm indicator-item">{cart.length || 0}</span>
-            </div> 
-          </div>
+            </div>
+          </label>
+
           </Link>
 
           {/* {login btn} */}
-          {
-            user? <Profile user={user}/> : <button
-            onClick={() => document.getElementById("my_modal_5").showModal()}
-            className="btn bg-green rounded-full px-6 text-white flex items-center gap-2"
-          >
-            <FaRegUser />
-            Login
+          { 
+            user ? <>
+           <Profile user={user}/>
+          </> : <button onClick={()=>document.getElementById('my_modal_5').showModal()} className="btn flex items-center gap-2 rounded-full px-6 bg-green text-white">
+            <FaRegUser /> Login
           </button>
           }
-         <Modal/>
+          <Modal />
         </div>
       </div>
     </header>

@@ -37,9 +37,10 @@ const onSubmit = (data) => {
         axiosPublic
           .post("/users", userInfo)
           .then((response) => {
-            // console.log(response);
+            console.log(response);
             alert("Signin successful!");
-            navigate(from, { replace: true });
+            document.getElementById("my_modal_5").close()
+            navigate(from, {replace: true});
           });
         // console.log(user);
         // ...
@@ -63,7 +64,7 @@ const onSubmit = (data) => {
         axiosPublic
           .post("/users", userInfo)
           .then((response) => {
-            // console.log(response);
+            console.log(response);
             alert("Signin successful!");
             navigate("/");
           });
@@ -140,9 +141,9 @@ const onSubmit = (data) => {
             </div>
 
             <p className="text-center my-2">
-              Donot have an account?
+              Do not have an account?
               <Link to="/signup" className="underline text-red ml-1">
-                Signup Now
+                Sign up Now
               </Link>
             </p>
           </form>

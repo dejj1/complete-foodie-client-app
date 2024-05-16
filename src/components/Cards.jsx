@@ -4,14 +4,14 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
 import { AuthContext } from "../contexts/AuthProvider";
 import Swal from "sweetalert2";
-import useCarts from "../hooks/useCarts";
+import useCart from "../hooks/useCart";
 import axios from "axios";
 
 const Cards = ({ item }) => {
   const { name, image, price, recipe, _id } = item;
   const [isHeartFilled, setIsHeartFilled] = useState(false);
   const { user } = useContext(AuthContext);
-  const [cart, refetch] = useCarts();
+  const [cart, refetch] = useCart();
 
   const navigate = useNavigate();
   const location = useLocation();
