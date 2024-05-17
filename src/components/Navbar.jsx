@@ -86,9 +86,9 @@ const Navbar = () => {
             : ""
         }`}
       >
-        <div className="navbar-start">
+        <div className="navbar">
           <div className="dropdown justify-between">
-            <div tabIndex={0} className="btn btn-ghost lg:hidden">
+            <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -103,10 +103,10 @@ const Navbar = () => {
                   d="M4 6h16M4 12h8m-8 6h16"
                 />
               </svg>
-            </div>
+            </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-64 space-y-3"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 space-y-3"
             >
               {navItems}
             </ul>
@@ -120,7 +120,7 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           {/* {search btn} */}
-          <button className="btn btn-ghost btn-circle hidden lg:flex">
+          <button className="btn btn-ghost hidden btn-circle lg:flex">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -138,15 +138,15 @@ const Navbar = () => {
           </button>
 
           {/* cart items */}
-          <Link to="cart-page">
+          <Link to="/cart-page">
           <label
             tabIndex={0}
-            className="btn btn-ghost btn-circle  lg:flex items-center justify-center mr-3"
+            className="btn btn-ghost btn-circle  lg:flex items-center justify-center"
           >
             <div className="indicator">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="svg-cart"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"

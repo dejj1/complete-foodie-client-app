@@ -5,18 +5,19 @@ import Slider from "react-slick";
 import Cards from "../../components/Cards";
 import {} from "react-icons/fa6"
 import { FaAngleRight, FaAngleLeft  } from "react-icons/fa";
+import PropTypes from "prop-types";
 
-const simpleNextArrow = (props) =>{
+const SimpleNextArrow = (props) =>{
     const {className, style, onClick} = props;
     return(
-        <div className={className} style={{...style, display: "block", background: "red"} }onClick={onClick}>NEXT</div>
+        <div className={className} style={{...style, display: "block", background: "whitesmoke"} }onClick={onClick}>NEXT</div>
     )
 }
 
-const simplePrevArrow = (props) => {
+const SimplePrevArrow = (props) => {
     const {className, style, onClick} = props;
     return(
-        <div className={className} style={{...style, display: "block", background: "green"} }onClick={onClick}>BACK</div>
+        <div className={className} style={{...style, display: "block", background: "whitesmoke"} }onClick={onClick}>BACK</div>
     )
 }
 
@@ -42,13 +43,13 @@ const SpecialDishes = () => {
     speed: 500,
     slidesToShow: 2,
     slidesToScroll: 2,
-    initialSlide: 0,
+    initialSlide: 1,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToScroll: 1,
           infinite: true,
           dots: true,
         },
@@ -56,8 +57,8 @@ const SpecialDishes = () => {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToShow: 1,
+          slidesToScroll: 1,
           initialSlide: 2,
         },
       },
@@ -70,8 +71,8 @@ const SpecialDishes = () => {
       },
     ],
 
-    nextArrow: <simpleNextArrow/>,
-    prevArrow: <simplePrevArrow/>
+    nextArrow: <SimpleNextArrow/>,
+    prevArrow: <SimplePrevArrow/>
   };
 
   return (
@@ -90,7 +91,7 @@ const SpecialDishes = () => {
         </button>
       </div>
 
-      <Slider ref={slider} {...settings} className="overflow-hidden mt-10 space-x-5">
+      <Slider ref={slider} {...settings} className=" mt-10 space-x-5">
         {
         recipes.map((item, i) => (
           <Cards key={i} item={item} />
@@ -99,6 +100,17 @@ const SpecialDishes = () => {
       </Slider>
     </div>
   );
+};
+
+SimpleNextArrow.propTypes = {
+  className: PropTypes.node,
+  style: PropTypes.node,
+  onClick: PropTypes.node
+};
+SimplePrevArrow.propTypes = {
+  className: PropTypes.node,
+  style: PropTypes.node,
+  onClick: PropTypes.node
 };
 
 export default SpecialDishes;

@@ -41,7 +41,7 @@ const Cards = ({ item }) => {
             Swal.fire({
               position: "center",
               icon: "success",
-              title: "Food added on the cart.",
+              title: "Food added to your cart 👍🏽",
               showConfirmButton: false,
               timer: 1500,
             });
