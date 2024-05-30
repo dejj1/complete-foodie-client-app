@@ -27,19 +27,17 @@ const Login = () => {
   const onSubmit = (data) => {
     const email = data.email;
     const password = data.password;
-    login(email, password)
-      .then((result) => {
+    login(email, password).then(async (result) => {
         // Signed in
         const user = result.user;
         const userInfo = {
           name: data.name,
           email: data.email,
         };
-        axiosPublic
-          .post("/users", userInfo)
-          .then((response) => {
+        await axiosPublic.post("/users", userInfo).then((response) => {
             // console.log(response);
             alert("Signin successful!");
+            
             navigate(from, { replace: true });
           });
         // console.log(user);
@@ -62,9 +60,7 @@ const Login = () => {
           name: result?.user?.displayName, 
           email: result?.user?.email,
         };
-        axiosPublic
-          .post("/users", userInfo)
-          .then((response) => {
+        axiosPublic.post("/users", userInfo).then((response) => {
             // console.log(response);
             alert("Signin successful!");
             navigate("/");

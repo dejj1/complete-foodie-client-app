@@ -9,13 +9,9 @@ import useAuth from "../hooks/useAuth";
 
 const Navbar = () => {
   const [isSticky, setSticky] = useState(false);
-  const { user, loading } = useAuth();
-  // const {user} = useContext(AuthContext);
-  console.log(user);
-
+  const {user, loading} = useAuth();
   const [cart, refetch] = useCart();
 
-  //handle scroll functions
   useEffect(() => {
     const handleScroll = () => {
       const offset = window.scrollY;
@@ -45,7 +41,7 @@ const Navbar = () => {
           <summary>Menu</summary>
           <ul className="p-2">
             <li>
-              <Link to="/menu">All</Link>
+              <a href="/menu">All</a>
             </li>
             <li>
               <a>Salad</a>
@@ -78,7 +74,9 @@ const Navbar = () => {
     </>
   );
   return (
-    <header className="max-w-screen-2xl container mx-auto fixed top-0 left-0 right-0 transition-all duration-300 ease-in-out">
+    <header
+      className={`max-w-screen-2xl container mx-auto fixed top-0 left-0 right-0 transition-all duration-300 ease-in-out`}
+    >
       <div
         className={`navbar xl:px-24 ${
           isSticky
@@ -86,7 +84,7 @@ const Navbar = () => {
             : ""
         }`}
       >
-        <div className="navbar">
+        <div className="navbar-start">
           <div className="dropdown justify-between">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
@@ -106,7 +104,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 space-y-3"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-64 space-y-3"
             >
               {navItems}
             </ul>
@@ -118,9 +116,8 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navItems}</ul>
         </div>
-        <div className="navbar-end">
-          {/* {search btn} */}
-          <button className="btn btn-ghost hidden btn-circle lg:flex">
+        <div className="navbar-end ">
+          <button className="btn btn-ghost btn-circle hidden lg:flex">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -136,17 +133,17 @@ const Navbar = () => {
               />
             </svg>
           </button>
-
-          {/* cart items */}
-          <Link to="/cart-page">
-          <label
+         
+         {/* shopping cart */}
+         <Link to="/cart-page">
+         <label
             tabIndex={0}
             className="btn btn-ghost btn-circle  lg:flex items-center justify-center"
           >
             <div className="indicator">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="svg-cart"
+                className="h-5 w-5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -161,18 +158,18 @@ const Navbar = () => {
               <span className="badge badge-sm indicator-item">{cart.length || 0}</span>
             </div>
           </label>
+         </Link>
 
-          </Link>
+          {/* login button */}
 
-          {/* {login btn} */}
           { 
             user ? <>
            <Profile user={user}/>
-          </> : <button onClick={()=>document.getElementById('my_modal_5').showModal()} className="btn flex items-center gap-2 rounded-full px-6 bg-green text-white">
+          </> : <button onClick={()=>document.getElementById('my_modal_5').showModal()} className="btn flex items-center gap-2 rounded-full px-3 bg-green text-white">
             <FaRegUser /> Login
           </button>
           }
-          <Modal />
+          <Modal/>
         </div>
       </div>
     </header>
