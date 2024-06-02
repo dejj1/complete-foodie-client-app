@@ -15,6 +15,7 @@ import ManageItems from "../pages/dashboard/admin/ManageItems";
 import UpdateMenu from "../pages/dashboard/admin/UpdateMenu";
 import Payment from "../pages/shop/Payment";
 import Order from "../pages/dashboard/Order";
+import ManageBookings from "../pages/dashboard/admin/ManageBookings";
 
 const router = createBrowserRouter([
   {
@@ -92,6 +93,10 @@ const router = createBrowserRouter([
             `https://complete-foodie-client-server.onrender.com/menu/${params.id}`
           ),
       },
+      {
+        path: "manage-bookings",
+        element: <ManageBookings/>
+      }
     ],
   },
 ]);
