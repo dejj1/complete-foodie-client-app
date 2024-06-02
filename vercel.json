@@ -1,5 +1,14 @@
 {
-    "rewrites": [
-      { "source": "/menu", "destination": "/" }
-    ]
-  }
+  "rewrites": [
+    { "source": "/menu", "destination": "/" },
+    { "source": "/order", "destination": "/" },
+    { "source": "/cart-page", "destination": "/" },
+    { "source": "/update-profile", "destination": "/" },
+    { "source": "/process-checkout", "destination": "/" },
+    { "source": "/users", "destination": "/dashboard" },
+    { "source": "/add-menu", "destination": "/dashboard" },
+    { "source": "/manage-items", "destination": "/dashboard" },
+    { "source": "/update-menu/:id", "destination": "/dashboard" },
+    { "source": "/manage-bookings", "destination": "/dashboard" }
+  ]
+}
