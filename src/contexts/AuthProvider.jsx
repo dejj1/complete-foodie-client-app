@@ -17,7 +17,12 @@ const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 import PropTypes from "prop-types";
 
+// redirecting to home page or specific page
+
 const AuthProvider = ({ children }) => {
+ 
+ 
+  const from = location.state?.from?.pathname || "/";
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -71,21 +76,20 @@ const AuthProvider = ({ children }) => {
             }
           });
       } else {
-        localStorage.removeItem("access-token");
+        // Set a timeout to log out the user after 1 hour
+        setTimeout(() => {
+          localStorage.removeItem("access-token");
+          alert("Session expired. Please log in again.");
+        }, 7200000); // 2 hours in milliseconds
       }
+     
 
-    
-        setLoading(false);
-   
+      setLoading(false);
 
-        return () =>{
-          return unsubscribe();
-      }
+      return () => {
+        return unsubscribe();
+      };
     });
-
-  
-
-    
   }, []);
 
   const authInfo = {

@@ -86,36 +86,36 @@ const Dashboard = () => {
           <div className="stat-figure text-secondary text-3xl">
             <FaDollarSign />
           </div>
-          <div className="stat-title">Revenue</div>
-          <div className="stat-value">{stats.revenue}</div>
-          <div className="stat-desc">Jan 1st - Feb 1st</div>
+          <div className="stat-title text-secondary">Revenue</div>
+          <div className="stat-value text-black">{stats.revenue}</div>
+          <div className="stat-desc text-secondary">Jan 1st - Feb 1st</div>
         </div>
 
         <div className="stat bg-orange-200">
           <div className="stat-figure text-secondary text-3xl">
             <FaUsers />
           </div>
-          <div className="stat-title">Users</div>
-          <div className="stat-value">{stats.users}</div>
-          <div className="stat-desc">↗︎ 400 (22%)</div>
+          <div className="stat-title text-secondary">Users</div>
+          <div className="stat-value text-black">{stats.users}</div>
+          <div className="stat-desc text-secondary">↗︎ 400 (22%)</div>
         </div>
 
         <div className="stat bg-indigo-400">
           <div className="stat-figure text-secondary text-3xl">
             <FaBook />
           </div>
-          <div className="stat-title">Menu Items</div>
-          <div className="stat-value">{stats.menuItems}</div>
-          <div className="stat-desc">↘︎ 90 (14%)</div>
+          <div className="stat-title text-secondary">Menu Items</div>
+          <div className="stat-value text-black">{stats.menuItems}</div>
+          <div className="stat-desc text-secondary">↘︎ 90 (14%)</div>
         </div>
 
         <div className="stat bg-purple-300">
           <div className="stat-figure text-secondary text-3xl">
             <FaShoppingCart />
           </div>
-          <div className="stat-title">All Orders</div>
-          <div className="stat-value">{stats.orders}</div>
-          <div className="stat-desc">↘︎ 90 (14%)</div>
+          <div className="stat-title text-secondary">All Orders</div>
+          <div className="stat-value text-black">{stats.orders}</div>
+          <div className="stat-desc text-secondary">↘︎ 90 (14%)</div>
         </div>
       </div>
 

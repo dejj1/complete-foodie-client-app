@@ -3,41 +3,41 @@ import React from "react";
 const Footer = () => {
   return (
     <div>
-      <footer className="footer xl:px-24 py-10 px-4 text-base-content">
+      <footer className="footer footer-top xl:px-24 py-10 px-4">
         <aside>
           <img src="/logo.png" alt="" />
 
-          <p className="my-5 md:w-40">
-            Savor the artistry where dish is a culinary masterpiece
+          <p className="my-3 md:w-40 font-medium italic">
+            ...savor the artistry where every dish is a culinary masterpiece.
           </p>
         </aside>
         <nav>
           <h6 className="footer-title">USEFUL LINKS</h6>
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Events</a>
-          <a className="link link-hover">Blogs</a>
-          <a className="link link-hover">FAQs</a>
+          <a className="link link-hover font-medium">About us</a>
+          <a className="link link-hover font-medium">Events</a>
+          <a className="link link-hover font-medium">Blogs</a>
+          <a className="link link-hover font-medium">FAQs</a>
         </nav>
         <nav>
           <h6 className="footer-title">MAIN MENU</h6>
-          <a className="link link-hover">Home</a>
-          <a className="link link-hover">Offers</a>
-          <a className="link link-hover">Menu</a>
-          <a className="link link-hover">Reservation</a>
+          <a className="link link-hover font-medium">Home</a>
+          <a className="link link-hover font-medium">Offers</a>
+          <a className="link link-hover font-medium">Menu</a>
+          <a className="link link-hover font-medium">Reservation</a>
         </nav>
         <nav>
           <h6 className="footer-title">CONTACT US</h6>
-          <a className="link link-hover">dejioyelakin@gmail.com</a>
-          <a className="link link-hover">+234 705 994 4977</a>
-          <a className="link link-hover">Social Media</a>
+          <a className="link link-hover font-medium">dejioyelakin@gmail.com</a>
+          <a className="link link-hover font-medium">+234 705 994 4977</a>
+          <a className="link link-hover font-medium">Social Media</a>
         </nav>
       </footer>
 
-      <hr />
+      <hr className="divide"/>
       <footer className="footer items-center p-4 xl:px-24 py-10 px-4">
-        <aside className="items-center grid-flow-col">
+        <aside className="items-center grid-flow-col font-medium">
          
-          <p>Copyright © 2024 - All right reserved</p>
+          <p>Copyright © 2024 - All rights reserved. Designed by Deji Oyelakin.</p>
         </aside>
         <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
           <a>

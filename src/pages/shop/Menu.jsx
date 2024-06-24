@@ -86,21 +86,33 @@ const Menu = () => {
   return (
     <div>
       {/* menu banner */}
-      <div className="section-container bg-gradient-to-r from-[#FAFAFA] from-0% to-[#FCFCFC] to-100%">
-        <div className="py-48 flex flex-col justify-center items-center gap-8">
-          {/* {text} */}
-          <div className="text-center space-y-7 px-4">
-            <h2 className="md:text-5xl text-4xl font-bold md:leading-snug leading-snug">
-              For The Love Of Delicious <span className="text-green">Food</span>
-            </h2>
-            <p className="text-xl text-[#4A4A4A] md:w-4/5 mx-auto">
-              Come with family & feel the joy of mouthwatering food such as
-              Salad, lasagne, Butternut Pumpkin, Tokusen Wangyu, Olivas Relienas
-              and more for a moderate cost.
-            </p>
-            <button className="btn bg-green px-8 py-3 font-semibold text-white rounded-full">
-              Order Now
-            </button>
+      <div>
+        <div className=" py-20 flex flex-col justify-center items-center gap-8">
+          <div>
+            <img
+              className="menu-img relative h-[100vh]"
+              srcSet="
+             ../../images/home/menu-imgi.jpg 1x,
+             ../../images/home/menu-imgii.jpg 2x
+           "
+              src="../../images/home/menu-imgi.jpg"
+              alt=""
+            />
+            {/* {text} */}
+            <div className=" text-center space-y-5 px-4 absolute top-[10rem] left-0">
+              <h2 className="md:text-5xl text-6xl font-bold md:leading-snug leading-snug text-white">
+                For The Love Of Delicious{" "}
+                <span className="text-green">Food</span>
+              </h2>
+              <p className="text-l text-white md:w-4/5 mx-auto">
+                Come with family & feel the joy of mouthwatering food such as
+                Salad, lasagne, Butternut Pumpkin, Tokusen Wangyu, Olivas
+                Relienas and more for a moderate cost.
+              </p>
+              <button className="btn bg-green px-8 py-3 font-semibold text-white rounded-full outline-none border-none">
+                Order Now
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -189,7 +201,7 @@ const Menu = () => {
             key={index + 1}
             onClick={() => paginate(index + 1)}
             className={`mx-1 px-3 py-1 rounded-full ${
-              currentPage === index + 1 ? "bg-green text-white" : "bg-gray-200"
+              currentPage === index + 1 ? "bg-green text-white" : "bg-gray-200 text-black"
             }`}
           >
             {index + 1}

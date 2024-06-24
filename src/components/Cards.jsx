@@ -104,7 +104,7 @@ const Cards = ({ item }) => {
           {" "}
           <h2 className="card-title">{item.name}</h2>
         </Link>
-        <p>Description</p>
+        <p className="font-primary text-sm">{item.recipe}</p>
         <div className="card-actions justify-between items-center mt-2">
           <h5 className="font-semibold">
             <span className="text-sm text-red">$</span>

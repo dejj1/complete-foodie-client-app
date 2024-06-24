@@ -2,10 +2,11 @@ import React, { useContext } from "react";
 import { FaFacebookF, FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form"
-import Modal from "./Modal";
 import { AuthContext } from "../contexts/AuthProvider";
 import axios from "axios";
 import useAxiosPublic from "../hooks/useAxiosPublic";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Signup = () => {
   const {
@@ -35,8 +36,15 @@ const Signup = () => {
         }
         axiosPublic.post('/users', userInfo)
       .then((response)=>{
+        if (response.data && response.data.message) {
+          toast.success(response.data.message);
+        } else {
+          toast.error("No message in response");
+        }
         alert("Account created successfully!")
-        navigate(from, {replace: true})
+        if (response.data.success){
+          navigate(from, {replace: true});
+        }
         // ...
       })
     })
@@ -68,8 +76,9 @@ const Signup = () => {
   };
 
   return (
-    <div className="max-w-md bg-white shadow w-full mx-auto flex items-center justify-center my-20">
-      <div className="mb-5">
+    <div className=" p-7 lg:p-0">
+      <div className="max-w-md bg-[#eef3f0] shadow w-full mx-auto flex items-center justify-center my-16 rounded">
+      <div className="mb-5 ">
         <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
           <h3 className="font-bold text-lg">Please Create An Account!</h3>
           {/* name */}
@@ -80,7 +89,7 @@ const Signup = () => {
             <input
               type="name"
               placeholder="Your name"
-              className="input input-bordered"
+              className="input input-bordered text-sm"
               {...register("name")}
             />
           </div>
@@ -93,7 +102,7 @@ const Signup = () => {
             <input
               type="email"
               placeholder="email"
-              className="input input-bordered"
+              className="input input-bordered text-sm"
               {...register("email")}
             />
           </div>
@@ -106,14 +115,10 @@ const Signup = () => {
             <input
               type="password"
               placeholder="password"
-              className="input input-bordered"
+              className="input input-bordered text-sm"
               {...register("password")}
             />
-            <label className="label">
-              <a href="#" className="label-text-alt link link-hover mt-2">
-                Forgot password?
-              </a>
-            </label>
+           
           </div>
 
           {/* error message */}
@@ -123,15 +128,15 @@ const Signup = () => {
           <div className="form-control mt-6">
             <input
               type="submit"
-              className="btn bg-green text-white"
+              className="btn bg-green text-white border-0 outline-0 rounded-full"
               value="Sign up"
             />
           </div>
 
-          <div className="text-center my-2">
+          <div className="text-center my-2 text-sm font-semibold">
             Have an account?
             <Link to="/login">
-              <button className="ml-2 underline">Login here</button>
+              <button className="ml-1 underline text-red">Login here</button>
             </Link>
           </div>
         </form>
@@ -150,6 +155,7 @@ const Signup = () => {
           </button>
         </div>
       </div>
+    </div>
     </div>
   );
 };

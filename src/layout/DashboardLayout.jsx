@@ -4,7 +4,7 @@ import { MdDashboard, MdDashboardCustomize } from "react-icons/md";
 import { FaEdit, FaLocationArrow, FaPlusCircle, FaQuestionCircle, FaRegUser, FaShoppingBag, FaUser } from "react-icons/fa";
 import logo from "/logo.png";
 import { FaCartShopping } from "react-icons/fa6";
-import Login from "../components/Login"
+import { CgDanger } from "react-icons/cg";
 import useAuth from "../hooks/useAuth";
 import useAdmin from "../hooks/useAdmin";
 
@@ -101,7 +101,11 @@ const DashboardLayout = () => {
             }
           </ul>
         </div>
-      </div> : <Login/>
+      </div> : <div className="text-center flex flex-col justify-center items-center space-y-5 my-20 px-4">
+        <CgDanger className="w-20 h-20 text-red"/>
+        <h4 className="font-semibold">You cannot <span className="text-red">access</span> this page because you are not an admin.</h4>
+        <Link to='/' className="btn bg-green text-white rounded-full font-bold">Go back</Link>
+      </div>
       }
     </div>
   );

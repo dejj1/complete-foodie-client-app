@@ -4,13 +4,14 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  // darkMode: "class",
   theme: {
     extend: {
       colors: {
         "green" : "#39DB4A",
         "red" : "#FF6868",
         "secondary" : "#555",
-        "primaryBG" : "#FCFCFC"
+        // "primaryBG" : "#FCFCFC"
       },
       fontFamily: {
         "primary" : ['Inter', 'sans-serif']
@@ -18,5 +19,8 @@ export default {
     },
   },
   plugins: [require("daisyui")],
+  daisyui: {
+    themes: ["light", "dark"]
+  }
 }
 

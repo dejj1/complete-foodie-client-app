@@ -7,19 +7,19 @@ import {} from "react-icons/fa6"
 import { FaAngleRight, FaAngleLeft  } from "react-icons/fa";
 import PropTypes from "prop-types";
 
-const SimpleNextArrow = (props) =>{
-    const {className, style, onClick} = props;
-    return(
-        <div className={className} style={{...style, display: "block", background: "whitesmoke"} }onClick={onClick}>NEXT</div>
-    )
-}
+// const SimpleNextArrow = (props) =>{
+//     const {className, style, onClick} = props;
+//     return(
+//         <div className={className} style={{...style, display: "block", background: "whitesmoke"} }onClick={onClick}>NEXT</div>
+//     )
+// }
 
-const SimplePrevArrow = (props) => {
-    const {className, style, onClick} = props;
-    return(
-        <div className={className} style={{...style, display: "block", background: "whitesmoke"} }onClick={onClick}>BACK</div>
-    )
-}
+// const SimplePrevArrow = (props) => {
+//     const {className, style, onClick} = props;
+//     return(
+//         <div className={className} style={{...style, display: "block", background: "whitesmoke"} }onClick={onClick}>BACK</div>
+//     )
+// }
 
 const SpecialDishes = () => {
   const [recipes, setRecipes] = useState([]);
@@ -42,14 +42,14 @@ const SpecialDishes = () => {
     infinite: false,
     speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 3,
+    slidesToScroll: 1,
     initialSlide: 1,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
           infinite: true,
           dots: true,
         },
@@ -58,12 +58,12 @@ const SpecialDishes = () => {
         breakpoint: 970,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToScroll: 1,
           initialSlide: 2,
         },
       },
       {
-        breakpoint: 576,
+        breakpoint: 600,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -71,8 +71,8 @@ const SpecialDishes = () => {
       },
     ],
 
-    nextArrow: <SimpleNextArrow />,
-    prevArrow: <SimplePrevArrow />,
+    // nextArrow: <SimpleNextArrow />,
+    // prevArrow: <SimplePrevArrow />,
   };
 
   return (
@@ -102,15 +102,15 @@ const SpecialDishes = () => {
   );
 };
 
-SimpleNextArrow.propTypes = {
-  className: PropTypes.node,
-  style: PropTypes.node,
-  onClick: PropTypes.node
-};
-SimplePrevArrow.propTypes = {
-  className: PropTypes.node,
-  style: PropTypes.node,
-  onClick: PropTypes.node
-};
+// SimpleNextArrow.propTypes = {
+//   className: PropTypes.node,
+//   style: PropTypes.node,
+//   onClick: PropTypes.node
+// };
+// SimplePrevArrow.propTypes = {
+//   className: PropTypes.node,
+//   style: PropTypes.node,
+//   onClick: PropTypes.node
+// };
 
 export default SpecialDishes;

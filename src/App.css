@@ -1,9 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
-
 
 header {
   z-index: 10001 !important;
@@ -63,7 +62,7 @@ input::-webkit-inner-spin-button {
   }
 }
 
-.svg-cart{
+.svg-cart {
   width: 1.25rem;
   height: 1.25rem;
 }
@@ -77,8 +76,73 @@ input::-webkit-inner-spin-button {
 }
 
 .bg-gradient {
-  background: linear-gradient(to right, #648880, #79c097);
-  color: white; 
-  padding: 24px;
-  
+  background: linear-gradient(to right, #648880, #74b991, #648880);
+  color: white;
+  padding: 60px 25px;
 }
+
+.toggle_mode{
+  width: 40px;
+  height: 20px
+}
+
+.load-divider{
+  border: 1px solid rgb(185, 183, 183);
+  width: 100%;
+  margin: 0 auto
+}
+
+.footer {
+  /* background: linear-gradient(to right,  #8B9467, #4E5338); */
+  background: rgb(105, 124, 120);
+  color: white
+}
+
+.footer-top {
+  border: 1px solid rgb(105, 124, 120);
+  border-radius: 50px 0px 0px;
+}
+
+.divide{
+  border: 1px solid gray;
+  /* width: 90%;
+  margin: 0 auto; */
+
+}
+
+.wrapper {
+  width: 100% !important; /* Override any width changes */
+  box-sizing: border-box !important; /* Ensure box-sizing is correct */
+  margin: 0 !important; /* Override any unwanted margin changes */
+  padding: 0 !important; /* Override any unwanted padding changes */
+}
+
+.caption-leading {
+  background-image: linear-gradient(
+      180deg,
+      rgba(225, 210, 210, 0) 1%,
+      rgba(26, 4, 4, 0.182) 20%,
+      rgba(0, 0, 0, 0.855) 90%
+    ),
+    url("../../images/home/menu-page.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.menu-img {
+  filter: brightness(0.5);
+  width: 100vw;
+}
+
+/* [data-scroll-container] {
+  overflow: hidden;
+
+  background-image: linear-gradient(
+        180deg,
+        rgba(225, 210, 210, 0) 1%,
+        rgba(26, 4, 4, 0.182) 20%,
+        rgba(0, 0, 0, 0.855) 90%
+      ),url(img/Screenshot_20230708-064344_Slack[233].jpg);
+    background-size: cover;
+    background-position: center;
+} */

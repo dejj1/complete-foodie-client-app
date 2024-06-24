@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import anime from "animejs/lib/anime.es.js";
+import '../Banner.css';
 
 const Banner = () => {
+  useEffect(() => {
+    anime({
+      targets: ".banner .texti",
+      translateX: [-100, 0],
+      opacity: [0, 1],
+      duration: 3000,
+      easing: "easeOutExpo",
+      delay: (el, i) => 200 * i,
+    });
+  }, []);
+ 
   return (
-    <div className="section-container bg-gradient-to-r from-[#FAFAFA] from-0% to-[#FCFCFC] to-100%">
-      <div className="py-24 flex flex-col md:flex-row-reverse justify-between items-center gap-8">
+    <div className="banner section-container ">
+      <div className="texti py-24 flex flex-col md:flex-row-reverse justify-between items-center gap-8">
         {/* {image} */}
         <div className="md:w-1/2">
           <img src="/images/home/banner.png" alt="" />
@@ -59,7 +72,7 @@ const Banner = () => {
                 className="rounded-2xl"
               />
               <div className="space-y-1">
-                <h5 className="font-medium mb-1">Spicy noodles</h5>
+                <h5 className="font-medium mb-1">Italian noodles</h5>
                 <div className="rating rating-sm">
                   <input
                     type="radio"
@@ -93,25 +106,25 @@ const Banner = () => {
                     readOnly
                   />
                 </div>
-                <p className="text-red"> $14.00</p>
+                <p className="text-red"> $12.00</p>
               </div>
             </div>
           </div>
         </div>
         
         {/* {text} */}
-        <div className="md:w-1/2 space-y-7 px-4">
-          <h2 className="md:text-5xl text-4xl font-bold md:leading-snug leading-snug">
+        <div className="md:w-1/2 space-y-7 sm:space-y-5 px-4">
+          <h2 className=" md:text-5xl text-4xl font-bold md:leading-snug leading-snug">
             Dive into Delights of Delectable{" "}
             <span className="text-green">Food</span>
           </h2>
-          <p className="text-xl text-[#4A4A4A]">
-            Where Each Plate Weaves a Story of Culinary Mastery and Passionate
-            Craftsmanship
+          <p className="texti text-xl text-lowercase ">
+            Where each plate weaves a story of culinary mastery and passionate
+            craftsmanship!
           </p>
-          <button className="btn bg-green px-8 py-3 font-semibold text-white rounded-full">
+          <a href="/menu" className="btn bg-green px-8 py-3 font-semibold text-white rounded-full">
             Order Now
-          </button>
+          </a>
         </div>
         
       </div>

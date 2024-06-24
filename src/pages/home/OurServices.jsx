@@ -1,5 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from "react";
+import React, { useEffect } from "react";
+import anime from "animejs/lib/anime.es.js";
+import '../../OurServices.css'
 
 const serviceLists = [
     {id: 1, title: "Catering", description: "Delight your guests with our flavours and presentation", image: "/images/home/services/icon1.png" },
@@ -9,15 +11,25 @@ const serviceLists = [
 ]
 
 const OurServices = () => {
+  useEffect(() => {
+    anime({
+      targets: ".services .texti",
+      translateX: [-100, 0],
+      opacity: [0, 1],
+      duration: 3000,
+      easing: "easeOutExpo",
+      delay: (el, i) => 200 * i,
+    });
+  }, []);
   return (
-    <div className="section-container my-20">
-      <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+    <div className="services section-container my-20">
+      <div className="texti flex flex-col md:flex-row items-center justify-between gap-12">
         {/* text */}
-        <div className="md:w-1/2">
+        <div className=" md:w-1/2">
           <div className="text-left md:w-4/5">
             <p className="subtitle">Our Story And Services</p>
             <h2 className="title">Our Culinary Journey And Services</h2>
-            <p className="my-5 text-secondary leading-[30px]">
+            <p className="texti my-5 leading-[30px]">
               Rooted in passion, we curate unforgettable dining experiences and
               offer exceptional services, blending culinary artistry with warm
               hospitality.
@@ -27,8 +39,8 @@ const OurServices = () => {
           </div>
         </div>
 
-        {/* image */}
-        <div className="md:w-1/2">
+        {/* cards */}
+        <div className=" md:w-1/2">
             <div className="grid sm:grid-cols-2 grid-cols-1 gap-8 items-center">
                 {
                     serviceLists.map((service) =>(

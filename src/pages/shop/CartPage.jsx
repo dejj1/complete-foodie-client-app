@@ -129,7 +129,7 @@ const CartPage = () => {
   return (
     <div className="max-w-screen-2xl container mx-auto xl:px-24 px-4">
       {/* banner */}
-      <div className=" bg-gradient-to-r from-0% from-[#FAFAFA] to-[#FCFCFC] to-100%">
+      <div className=" bg-gradient-to-r from-0% from-[#F] to-[#F] to-100%">
         <div className="py-28 flex flex-col items-center justify-center">
           {/* content */}
           <div className=" text-center px-4 space-y-7">
@@ -175,7 +175,7 @@ const CartPage = () => {
                       <td className="font-medium">{item.name}</td>
                       <td>
                         <button
-                          className="btn btn-xs"
+                          className="btn md:btn-xs btn-sm"
                           onClick={() => handleDecrease(item)}
                         >
                           -
@@ -184,10 +184,10 @@ const CartPage = () => {
                           type="number"
                           value={item.quantity}
                           onChange={() => console.log(item.quantity)}
-                          className="w-10 mx-2 text-center overflow-hidden appearance-none"
+                          className="w-5 mx-2 text-center overflow-hidden appearance-none"
                         />
                         <button
-                          className="btn btn-xs"
+                          className="btn md:btn-xs btn-sm"
                           onClick={() => handleIncrease(item)}
                         >
                           +
@@ -212,18 +212,18 @@ const CartPage = () => {
           <hr />
           <div className="flex flex-col md:flex-row justify-between items-start my-12 gap-8">
             <div className="md:w-1/2 space-y-3">
-              <h3 className="text-lg font-semibold">Customer Details</h3>
-              <p>Name: {user?.displayName || "None"}</p>
-              <p>Email: {user?.email}</p>
+              <h3 className="text-lg font-bold">Customer Details</h3>
+              <p><span className="font-semibold">Name:</span> {user?.displayName || "None"}</p>
+              <p><span className="font-semibold">Email: </span>{user?.email}</p>
               <p>
-                User_id: <span className="text-sm">{user?.uid}</span>
+               <span className="font-semibold"> User ID:</span> <span className="text-sm">{user?.uid}</span>
               </p>
             </div>
             <div className="md:w-1/2 space-y-3">
-              <h3 className="text-lg font-semibold">Shopping Details</h3>
-              <p>Total Items: {cart.length}</p>
+              <h3 className="text-lg font-bold">Shopping Details</h3>
+              <p><span className="font-semibold">Total Items:</span> {cart.length}</p>
               <p>
-                Total Price:{" "}
+                <span className="font-semibold">Total Price:</span>{" "}
                 <span id="total-price">${orderTotal.toFixed(2)}</span>
               </p>
               <Link to="/process-checkout">
@@ -236,7 +236,7 @@ const CartPage = () => {
           </div>
         </div>
       ) : (
-        <div className="text-center mt-20">
+        <div className="text-center mt-20 mb-12">
           <p>Cart is empty. Please add products.</p>
           <Link to="/menu">
             <button className="btn bg-green text-white mt-3">
